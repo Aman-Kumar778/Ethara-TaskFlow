@@ -14,7 +14,7 @@ const isProduction = NODE_ENV === "production";
 const cookieOptions = {
   httpOnly: true,
   secure: isProduction,
-  sameSite: isProduction ? "none" : "lax",
+  sameSite: "lax", // Better for same-domain monolithic deployments
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
 };
 

@@ -7,6 +7,9 @@ const { NODE_ENV } = require("../config/env");
 const errorHandler = (err, req, res, next) => {
   let error = err;
 
+  // Log error for debugging in production logs
+  console.error("🔥 SYSTEM ERROR:", err);
+
   if (!(error instanceof ApiError)) {
     const statusCode = error.statusCode || (error.name === "ValidationError" ? 422 : 500);
     const message = error.message || "Internal server error";
